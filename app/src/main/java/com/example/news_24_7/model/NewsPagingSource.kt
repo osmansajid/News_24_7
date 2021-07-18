@@ -1,5 +1,6 @@
 package com.example.news_24_7.model
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import retrofit2.HttpException
@@ -14,15 +15,15 @@ class NewsPagingSource(private val newsApi: NewsApi, private val query: String):
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, NewsItem> {
-        val pageNum = params.key?:1
+        val pageNum = params.key ?: 1
 
         return try {
             val response = if(query == ""){
-                newsApi.getTopNews("us", pageNum,params.loadSize)
+                newsApi.getTopNews("us",params.loadSize, pageNum)
             }else{
-                newsApi.searchNews(query,"en","publishedAt",pageNum,params.loadSize)
+                newsApi.searchNews(query,"en","publishedAt",params.loadSize,pageNum)
             }
-
+           // if(response.articles.isEmpty())Log.d("LoadedOKOK","Empty")
             val articles = response.articles
             LoadResult.Page(
                 articles,

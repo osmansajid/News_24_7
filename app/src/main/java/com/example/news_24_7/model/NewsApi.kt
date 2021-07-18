@@ -14,7 +14,7 @@ interface NewsApi {
 
     @Headers("X-Api-Key: $API_KEY")
     @GET("top-headlines")
-    fun getTopNews(
+    suspend fun getTopNews(
         @Query("country")country: String,
         @Query("pageSize") perPage: Int,
         @Query("page") page: Int
@@ -22,7 +22,7 @@ interface NewsApi {
 
     @Headers("X-Api-Key: $API_KEY")
     @GET("everything")
-    fun searchNews(
+    suspend fun searchNews(
         @Query("q") query: String,
         @Query("language") language: String,
         @Query("sortBy") sortBy: String,

@@ -12,8 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_news"
-        />
+        tools:listitem="@layout/item_news" />
 
     <ProgressBar
         android:id="@+id/progress_bar_circle"
