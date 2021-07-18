@@ -11,21 +11,13 @@ import javax.inject.Singleton
 @Singleton
 class NewsRepository @Inject constructor(private val newsApi: NewsApi) {
 
-    fun getNews() = Pager(
-            config = PagingConfig(
-                pageSize = 20,
-                maxSize = 80,
-                enablePlaceholders = true
-            ),
-            pagingSourceFactory = {NewsPagingSource(newsApi,"")}
-        ).liveData
-
-    fun searchNews(query: String) = Pager(
-        config = PagingConfig(
-            pageSize = 20,
-            maxSize = 80,
-            enablePlaceholders = true
-        ),
-        pagingSourceFactory = {NewsPagingSource(newsApi,query)}
-    ).liveData
+    fun searchNews(query: String) =
+            Pager(
+                config = PagingConfig(
+                    pageSize = 20,
+                    maxSize = 80,
+                    enablePlaceholders = true
+                ),
+                pagingSourceFactory = { NewsPagingSource(newsApi, query) }
+            ).liveData
 }
