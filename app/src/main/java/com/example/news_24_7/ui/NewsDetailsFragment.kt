@@ -1,5 +1,7 @@
 package com.example.news_24_7.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
@@ -30,12 +32,17 @@ class NewsDetailsFragment: Fragment(R.layout.fragment_detail_news) {
                 .into(imageView)
 
             textViewHeading.text = newsItem.title
-            textViewDate.text = newsItem.publishedAt
+            textViewDate.text = newsItem.publishedAt.dropLast(10)
             textViewSource.text = newsItem.source.name
             textViewDetails.text = newsItem.description
             newsItem.content?.let {
-                textViewContents.text = it
+                textViewContents.text = it.dropLast(20) + "..."
                 textViewContents.isVisible = true
+            }
+            textViewSeeMore.setOnClickListener {
+                val uri = Uri.parse(newsItem.url)
+                val intent = Intent(Intent.ACTION_VIEW,uri)
+                startActivity(intent)
             }
         }
     }

@@ -90,6 +90,15 @@
                 android:visibility="gone"
                 tools:text="This is a breaking news content" />
 
+            <TextView
+                android:id="@+id/text_view_see_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textColor="#0000FF"
+                android:textSize="20dp"
+                android:text="[See more...]" />
+
         </LinearLayout>
 
 

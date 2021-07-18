@@ -49,7 +49,7 @@ class NewsAdapter(private val listener: OnClickListener): PagingDataAdapter<News
                     .error(R.drawable.news)
                     .into(imageView)
 
-                textViewDate.text = item.publishedAt
+                textViewDate.text = item.publishedAt.dropLast(10)
                 textViewHeading.text = item.title
                 textViewSource.text = item.source!!.name
             }
