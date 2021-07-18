@@ -15,7 +15,9 @@ interface NewsApi {
     @Headers("X-Api-Key: $API_KEY")
     @GET("top-headlines")
     fun getTopNews(
-        @Query("country")country: String
+        @Query("country")country: String,
+        @Query("pageSize") perPage: Int,
+        @Query("page") page: Int
     ): NewsApiResponse
 
     @Headers("X-Api-Key: $API_KEY")
