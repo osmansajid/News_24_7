@@ -1,9 +1,8 @@
 package com.example.news_24_7.model
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
 
-@Parcelize
+@kotlinx.parcelize.Parcelize
 data class NewsItem(
     val source: NewsSource,
     val title: String,
@@ -14,7 +13,7 @@ data class NewsItem(
     val content: String?
 ) : Parcelable {
 
-    @Parcelize
+    @kotlinx.parcelize.Parcelize
     data class NewsSource(
         val name: String
     ) : Parcelable

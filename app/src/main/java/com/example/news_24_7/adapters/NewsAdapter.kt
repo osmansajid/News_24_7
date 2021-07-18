@@ -13,7 +13,7 @@ import com.example.news_24_7.databinding.FragmentNewsListBinding
 import com.example.news_24_7.databinding.ItemNewsBinding
 import com.example.news_24_7.model.NewsItem
 
-class NewsAdapter: PagingDataAdapter<NewsItem,NewsAdapter.ViewHolder>(COMPARATOR) {
+class NewsAdapter(private val listener: OnClickListener): PagingDataAdapter<NewsItem,NewsAdapter.ViewHolder>(COMPARATOR) {
     companion object{
         val COMPARATOR = object : DiffUtil.ItemCallback<NewsItem>(){
             override fun areItemsTheSame(oldItem: NewsItem, newItem: NewsItem): Boolean {
@@ -28,6 +28,18 @@ class NewsAdapter: PagingDataAdapter<NewsItem,NewsAdapter.ViewHolder>(COMPARATOR
     }
 
     inner class ViewHolder(private val binding: ItemNewsBinding) : RecyclerView.ViewHolder(binding.root){
+        init {
+            binding.root.setOnClickListener {
+                val pos = bindingAdapterPosition
+                if(pos != RecyclerView.NO_POSITION){
+                    val item = getItem(pos)
+                    if(item != null){
+                        listener.onClick(item)
+                    }
+                }
+            }
+        }
+
         fun setItem(item: NewsItem){
             binding.apply {
                 Glide.with(itemView)
@@ -54,5 +66,9 @@ class NewsAdapter: PagingDataAdapter<NewsItem,NewsAdapter.ViewHolder>(COMPARATOR
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemNewsBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return  ViewHolder(binding)
+    }
+
+    interface OnClickListener{
+        fun onClick(item: NewsItem)
     }
 }
