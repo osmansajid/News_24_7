@@ -36,7 +36,8 @@ class NewsDetailsFragment: Fragment(R.layout.fragment_detail_news) {
             textViewSource.text = newsItem.source.name
             textViewDetails.text = newsItem.description
             newsItem.content?.let {
-                textViewContents.text = it.dropLast(20) + "..."
+                val content: String = "${it.dropLast(20)}..."
+                textViewContents.text = content
                 textViewContents.isVisible = true
             }
             textViewSeeMore.setOnClickListener {

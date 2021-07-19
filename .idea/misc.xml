@@ -10,7 +10,9 @@
         <entry key="..\:/Android Projects/Android Architecture Component Apps/News_24_7/app/src/main/res/layout/activity_main.xml" value="0.121875" />
         <entry key="..\:/Android Projects/Android Architecture Component Apps/News_24_7/app/src/main/res/layout/fragment_detail_news.xml" value="0.152" />
         <entry key="..\:/Android Projects/Android Architecture Component Apps/News_24_7/app/src/main/res/layout/fragment_news_list.xml" value="0.121875" />
+        <entry key="..\:/Android Projects/Android Architecture Component Apps/News_24_7/app/src/main/res/layout/fragment_news_list_footer_header.xml" value="0.136" />
         <entry key="..\:/Android Projects/Android Architecture Component Apps/News_24_7/app/src/main/res/layout/item_news.xml" value="0.2" />
+        <entry key="..\:/Android Projects/Android Architecture Component Apps/News_24_7/app/src/main/res/menu/top_menu.xml" value="0.1046875" />
       </map>
     </option>
   </component>

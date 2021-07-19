@@ -3,4 +3,5 @@
     <string name="failed_to_load_images">Failed to load images</string>
     <string name="retry">Retry</string>
     <string name="no_results_found">No results found</string>
+    <string name="loading_failed">Loading failed</string>
 </resources>

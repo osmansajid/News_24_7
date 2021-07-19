@@ -21,7 +21,7 @@ class NewsPagingSource(private val newsApi: NewsApi, private val query: String):
             val response = if(query == ""){
                 newsApi.getTopNews("us",params.loadSize, pageNum)
             }else{
-                newsApi.searchNews(query,"en","publishedAt",params.loadSize,pageNum)
+                newsApi.searchNews(query,"en","relevancy",params.loadSize,pageNum)
             }
            // if(response.articles.isEmpty())Log.d("LoadedOKOK","Empty")
             val articles = response.articles
