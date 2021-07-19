@@ -85,9 +85,9 @@ class EntertainmentNewsListFragment : Fragment(R.layout.fragment_entertainment_n
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if(query != null){
-                    binding.recyclerView.scrollToPosition(0)
-                    viewModel.searchNews(query)
                     searchView.clearFocus()
+                    val action = EntertainmentNewsListFragmentDirections.actionEntertainmentNewsListFragmentToSearchNewsListFragment(query)
+                    findNavController().navigate(action)
                 }
                 return true
             }

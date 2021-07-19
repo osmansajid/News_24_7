@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_newsListFragment_to_newsDetailsFragment"
             app:destination="@id/newsDetailsFragment" />
+        <action
+            android:id="@+id/action_newsListFragment_to_searchNewsListFragment"
+            app:destination="@id/searchNewsListFragment" />
     </fragment>
     <fragment
         android:id="@+id/newsDetailsFragment"
@@ -30,6 +33,9 @@
         <action
             android:id="@+id/action_sportsNewsListFragment_to_newsDetailsFragment"
             app:destination="@id/newsDetailsFragment" />
+        <action
+            android:id="@+id/action_sportsNewsListFragment_to_searchNewsListFragment"
+            app:destination="@id/searchNewsListFragment" />
     </fragment>
     <fragment
         android:id="@+id/entertainmentNewsListFragment"
@@ -38,6 +44,24 @@
         tools:layout="@layout/fragment_entertainment_news_list">
         <action
             android:id="@+id/action_entertainmentNewsListFragment_to_newsDetailsFragment"
+            app:destination="@id/newsDetailsFragment" />
+        <action
+            android:id="@+id/action_entertainmentNewsListFragment_to_searchNewsListFragment"
+            app:destination="@id/searchNewsListFragment" />
+        <action
+            android:id="@+id/action_entertainmentNewsListFragment_to_searchNewsListFragment2"
+            app:destination="@id/searchNewsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchNewsListFragment"
+        android:name="com.example.news_24_7.ui.SearchNewsListFragment"
+        android:label="Search Results"
+        tools:layout="@layout/fragment_search_news_list">
+        <argument
+            android:name="queryString"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_searchNewsListFragment_to_newsDetailsFragment"
             app:destination="@id/newsDetailsFragment" />
     </fragment>
 </navigation>

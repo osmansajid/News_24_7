@@ -82,9 +82,9 @@ class NewsListFragment : Fragment(R.layout.fragment_news_list), NewsAdapter.OnCl
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if(query != null){
-                    binding.recyclerView.scrollToPosition(0)
-                    viewModel.searchNews(query)
                     searchView.clearFocus()
+                    val action = NewsListFragmentDirections.actionNewsListFragmentToSearchNewsListFragment(query)
+                    findNavController().navigate(action)
                 }
                 return true
             }

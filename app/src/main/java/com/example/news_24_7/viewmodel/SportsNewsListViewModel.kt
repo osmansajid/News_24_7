@@ -8,17 +8,9 @@ import com.example.news_24_7.repository.NewsRepository
 class SportsNewsListViewModel @ViewModelInject constructor(repository: NewsRepository, @androidx.hilt.Assisted savedState: SavedStateHandle
 ): ViewModel() {
     companion object{
-        const val LAST_QUERY_STRING = "last_query"
         const val CURRENT_QUERY_STRING = "Sports"
     }
 
-    private val query = savedState.getLiveData(LAST_QUERY_STRING, CURRENT_QUERY_STRING)
+    val news = repository.searchNews(query = CURRENT_QUERY_STRING).cachedIn(viewModelScope)
 
-    val news = query.switchMap {qString->
-        repository.searchNews(query = qString)
-    }.cachedIn(viewModelScope)
-
-    fun searchNews(newQuery: String){
-        query.value = newQuery
-    }
 }

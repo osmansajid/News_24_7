@@ -10,22 +10,26 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.paging.LoadState
 import com.example.news_24_7.R
 import com.example.news_24_7.adapters.NewsAdapter
 import com.example.news_24_7.adapters.NewsHeaderFooterAdapter
+import com.example.news_24_7.databinding.FragmentSearchNewsListBinding
 import com.example.news_24_7.databinding.FragmentSportsNewsListBinding
 import com.example.news_24_7.model.NewsItem
+import com.example.news_24_7.viewmodel.SearchNewsListViewModel
 import com.example.news_24_7.viewmodel.SportsNewsListViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SportsNewsListFragment : Fragment(R.layout.fragment_sports_news_list), NewsAdapter.OnClickListener {
+class SearchNewsListFragment : Fragment(R.layout.fragment_search_news_list), NewsAdapter.OnClickListener {
 
-    private val viewModel by viewModels<SportsNewsListViewModel>()
-    private var _binding: FragmentSportsNewsListBinding? = null
+    private val viewModel by viewModels<SearchNewsListViewModel>()
+    private var _binding: FragmentSearchNewsListBinding? = null
     private val binding get() = _binding!!
+    private val args by navArgs<SearchNewsListFragmentArgs>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.d("SportsNewsListFragment", "onViewCreated: ")
@@ -35,7 +39,7 @@ class SportsNewsListFragment : Fragment(R.layout.fragment_sports_news_list), New
         val navBar: BottomNavigationView = requireActivity().findViewById(R.id.bottom_bar)
         navBar.isVisible = true
 
-        _binding = FragmentSportsNewsListBinding.bind(view)
+        _binding = FragmentSearchNewsListBinding.bind(view)
         val adapter = NewsAdapter(this)
         binding.apply {
             recyclerView.setHasFixedSize(true)
@@ -47,6 +51,8 @@ class SportsNewsListFragment : Fragment(R.layout.fragment_sports_news_list), New
                 adapter.retry()
             }
         }
+
+        viewModel.searchNews(args.queryString)
 
         viewModel.news.observe(viewLifecycleOwner) {
             adapter.submitData(viewLifecycleOwner.lifecycle, it)
@@ -82,9 +88,9 @@ class SportsNewsListFragment : Fragment(R.layout.fragment_sports_news_list), New
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if(query != null){
+                    binding.recyclerView.scrollToPosition(0)
+                    viewModel.searchNews(query)
                     searchView.clearFocus()
-                    val action = SportsNewsListFragmentDirections.actionSportsNewsListFragmentToSearchNewsListFragment(query)
-                    findNavController().navigate(action)
                 }
                 return true
             }
@@ -102,7 +108,7 @@ class SportsNewsListFragment : Fragment(R.layout.fragment_sports_news_list), New
     }
 
     override fun onClick(item: NewsItem) {
-        val action = SportsNewsListFragmentDirections.actionSportsNewsListFragmentToNewsDetailsFragment(item)
+        val action = SearchNewsListFragmentDirections.actionSearchNewsListFragmentToNewsDetailsFragment(item)
         findNavController().navigate(action)
     }
 }
