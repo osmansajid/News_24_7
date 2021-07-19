@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.news_24_7.R
 import com.example.news_24_7.databinding.FragmentDetailNewsBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,6 +22,11 @@ class NewsDetailsFragment: Fragment(R.layout.fragment_detail_news) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //hiding bottom bar for details fragment
+        val navBar: BottomNavigationView = requireActivity().findViewById(R.id.bottom_bar)
+        navBar.isVisible = false
+
         _binding = FragmentDetailNewsBinding.bind(view)
         binding.apply {
             val newsItem = args.newsItem

@@ -20,6 +20,7 @@ import com.example.news_24_7.databinding.FragmentNewsListBinding
 import com.example.news_24_7.model.NewsItem
 import com.example.news_24_7.viewmodel.EntertainmentNewsListViewModel
 import com.example.news_24_7.viewmodel.NewsListViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,6 +33,11 @@ class EntertainmentNewsListFragment : Fragment(R.layout.fragment_entertainment_n
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d("Entertainment", "onViewCreated: ")
+
+        //showing bottom bar for news list fragment
+        val navBar: BottomNavigationView = requireActivity().findViewById(R.id.bottom_bar)
+        navBar.isVisible = true
+
         _binding = FragmentEntertainmentNewsListBinding.bind(view)
         val adapter = NewsAdapter(this)
         binding.apply {

@@ -1,7 +1,6 @@
 package com.example.news_24_7.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
@@ -18,6 +17,7 @@ import com.example.news_24_7.adapters.NewsHeaderFooterAdapter
 import com.example.news_24_7.databinding.FragmentNewsListBinding
 import com.example.news_24_7.model.NewsItem
 import com.example.news_24_7.viewmodel.NewsListViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,7 +29,11 @@ class NewsListFragment : Fragment(R.layout.fragment_news_list), NewsAdapter.OnCl
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("NewsListFragment", "onViewCreated: ")
+
+        //showing bottom bar for news list fragment
+        val navBar: BottomNavigationView = requireActivity().findViewById(R.id.bottom_bar)
+        navBar.isVisible = true
+
         _binding = FragmentNewsListBinding.bind(view)
         val adapter = NewsAdapter(this)
         binding.apply {

@@ -17,6 +17,7 @@ import com.example.news_24_7.adapters.NewsHeaderFooterAdapter
 import com.example.news_24_7.databinding.FragmentSportsNewsListBinding
 import com.example.news_24_7.model.NewsItem
 import com.example.news_24_7.viewmodel.SportsNewsListViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,6 +30,11 @@ class SportsNewsListFragment : Fragment(R.layout.fragment_sports_news_list), New
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.d("SportsNewsListFragment", "onViewCreated: ")
         super.onViewCreated(view, savedInstanceState)
+
+        //showing bottom bar for news list fragment
+        val navBar: BottomNavigationView = requireActivity().findViewById(R.id.bottom_bar)
+        navBar.isVisible = true
+
         _binding = FragmentSportsNewsListBinding.bind(view)
         val adapter = NewsAdapter(this)
         binding.apply {
