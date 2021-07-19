@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/newsListFragment">
+    app:startDestination="@id/entertainmentNewsListFragment">
 
     <fragment
         android:id="@+id/newsListFragment"
@@ -21,5 +21,23 @@
         <argument
             android:name="newsItem"
             app:argType="com.example.news_24_7.model.NewsItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/sportsNewsListFragment"
+        android:name="com.example.news_24_7.ui.SportsNewsListFragment"
+        android:label="fragment_sports_news_list"
+        tools:layout="@layout/fragment_sports_news_list">
+        <action
+            android:id="@+id/action_sportsNewsListFragment_to_newsDetailsFragment"
+            app:destination="@id/newsDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/entertainmentNewsListFragment"
+        android:name="com.example.news_24_7.ui.EntertainmentNewsListFragment"
+        android:label="fragment_entertainment_news_list"
+        tools:layout="@layout/fragment_entertainment_news_list" >
+        <action
+            android:id="@+id/action_entertainmentNewsListFragment_to_newsDetailsFragment"
+            app:destination="@id/newsDetailsFragment" />
     </fragment>
 </navigation>

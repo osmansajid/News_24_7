@@ -10,27 +10,26 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.paging.LoadState
 import com.example.news_24_7.R
 import com.example.news_24_7.adapters.NewsAdapter
 import com.example.news_24_7.adapters.NewsHeaderFooterAdapter
-import com.example.news_24_7.databinding.FragmentNewsListBinding
+import com.example.news_24_7.databinding.FragmentSportsNewsListBinding
 import com.example.news_24_7.model.NewsItem
-import com.example.news_24_7.viewmodel.NewsListViewModel
+import com.example.news_24_7.viewmodel.SportsNewsListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class NewsListFragment : Fragment(R.layout.fragment_news_list), NewsAdapter.OnClickListener {
+class SportsNewsListFragment : Fragment(R.layout.fragment_sports_news_list), NewsAdapter.OnClickListener {
 
-    private val viewModel by viewModels<NewsListViewModel>()
-    private var _binding: FragmentNewsListBinding? = null
+    private val viewModel by viewModels<SportsNewsListViewModel>()
+    private var _binding: FragmentSportsNewsListBinding? = null
     private val binding get() = _binding!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        Log.d("SportsNewsListFragment", "onViewCreated: ")
         super.onViewCreated(view, savedInstanceState)
-        Log.d("NewsListFragment", "onViewCreated: ")
-        _binding = FragmentNewsListBinding.bind(view)
+        _binding = FragmentSportsNewsListBinding.bind(view)
         val adapter = NewsAdapter(this)
         binding.apply {
             recyclerView.setHasFixedSize(true)
@@ -61,7 +60,6 @@ class NewsListFragment : Fragment(R.layout.fragment_news_list), NewsAdapter.OnCl
                 } else {
                     textViewNotFound.isVisible = false
                 }
-
             }
         }
 
@@ -98,7 +96,7 @@ class NewsListFragment : Fragment(R.layout.fragment_news_list), NewsAdapter.OnCl
     }
 
     override fun onClick(item: NewsItem) {
-        val action = NewsListFragmentDirections.actionNewsListFragmentToNewsDetailsFragment(item)
+        val action = SportsNewsListFragmentDirections.actionSportsNewsListFragmentToNewsDetailsFragment(item)
         findNavController().navigate(action)
     }
 }
