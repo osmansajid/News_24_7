@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#9965f4"
+    tools:context=".ui.AboutUsFragment"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Developer: Abdullah Al Osman"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:padding="4dp"
+        android:textColor="@color/white"
+        />
+
+    <TextView
+        android:id="@+id/text_view_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact: osmansazid13@gmail.com"
+        android:textStyle="bold|italic"
+        android:textColor="#d4bff9"
+        android:layout_margin="8dp"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About App"
+        android:textStyle="bold"
+        android:textColor="#d4bff9"
+        android:padding="4dp"
+        android:layout_margin="16dp"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about_app"
+        android:textColor="#d4bff9"
+        android:padding="4dp"
+        android:layout_margin="4dp"
+        android:textSize="20dp"
+        />
+
+</LinearLayout>

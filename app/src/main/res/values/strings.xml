@@ -4,4 +4,5 @@
     <string name="retry">Retry</string>
     <string name="no_results_found">No results found</string>
     <string name="loading_failed">Loading failed</string>
+    <string name="about_app">This app is developed for learning purpose.It is by no means for doing any business or profit.</string>
 </resources>
