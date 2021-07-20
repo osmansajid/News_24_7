@@ -30,10 +30,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button_retry"
         android:layout_centerHorizontal="true"
+        android:text="@string/failed_to_load_news"
         android:visibility="gone"
-        tools:visibility="visible"
-        android:text="@string/failed_to_load_images"
-        />
+        tools:visibility="visible" />
 
     <Button
         android:id="@+id/button_retry"

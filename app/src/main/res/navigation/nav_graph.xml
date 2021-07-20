@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_newsListFragment_to_newsDetailsFragment"
             app:destination="@id/newsDetailsFragment" />
-        <action
-            android:id="@+id/action_newsListFragment_to_searchNewsListFragment"
-            app:destination="@id/searchNewsListFragment" />
     </fragment>
     <fragment
         android:id="@+id/newsDetailsFragment"
@@ -33,9 +30,6 @@
         <action
             android:id="@+id/action_sportsNewsListFragment_to_newsDetailsFragment"
             app:destination="@id/newsDetailsFragment" />
-        <action
-            android:id="@+id/action_sportsNewsListFragment_to_searchNewsListFragment"
-            app:destination="@id/searchNewsListFragment" />
     </fragment>
     <fragment
         android:id="@+id/entertainmentNewsListFragment"
@@ -47,9 +41,6 @@
             app:destination="@id/newsDetailsFragment" />
         <action
             android:id="@+id/action_entertainmentNewsListFragment_to_searchNewsListFragment"
-            app:destination="@id/searchNewsListFragment" />
-        <action
-            android:id="@+id/action_entertainmentNewsListFragment_to_searchNewsListFragment2"
             app:destination="@id/searchNewsListFragment" />
     </fragment>
     <fragment

@@ -39,8 +39,6 @@ class NewsListFragment : Fragment(R.layout.fragment_news_list), NewsAdapter.OnCl
         //showing bottom bar for news list fragment
         val navBar: BottomNavigationView = requireActivity().findViewById(R.id.bottom_bar)
         navBar.isVisible = true
-        navBar.menu.setGroupCheckable(0,true,true)
-        navBar.menu.findItem(R.id.newsListFragment).isChecked = true;
 
         _binding = FragmentNewsListBinding.bind(view)
         val adapter = NewsAdapter(this)
@@ -77,10 +75,10 @@ class NewsListFragment : Fragment(R.layout.fragment_news_list), NewsAdapter.OnCl
             }
         }
 
-        setHasOptionsMenu(true)
+        //setHasOptionsMenu(true)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    /*override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.top_menu,menu)
 
@@ -102,7 +100,7 @@ class NewsListFragment : Fragment(R.layout.fragment_news_list), NewsAdapter.OnCl
             }
 
         })
-    }
+    }*/
 
     override fun onDestroyView() {
         super.onDestroyView()

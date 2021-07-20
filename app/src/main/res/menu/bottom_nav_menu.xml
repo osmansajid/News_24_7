@@ -17,4 +17,10 @@
         android:title="Entertainment"
         android:icon="@drawable/ic_entertainment"
         />
+
+    <item
+        android:id="@+id/searchNewsListFragment"
+        android:title="Search"
+        android:icon="@drawable/ic_search"
+        />
 </menu>

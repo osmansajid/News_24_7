@@ -9,7 +9,7 @@ class SearchNewsListViewModel @ViewModelInject constructor(repository: NewsRepos
 ): ViewModel() {
     companion object{
         const val LAST_QUERY_STRING = "last_query"
-        const val CURRENT_QUERY_STRING = ""
+        const val CURRENT_QUERY_STRING = "@@@@ThisIsDefaultQueryShouldNotReturnResult@@@@"
     }
 
     private val query = savedState.getLiveData(LAST_QUERY_STRING, CURRENT_QUERY_STRING)

@@ -32,7 +32,8 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.newsListFragment,
             R.id.sportsNewsListFragment,
-            R.id.entertainmentNewsListFragment
+            R.id.entertainmentNewsListFragment,
+            R.id.searchNewsListFragment
         ))
         setupActionBarWithNavController(navController,appBarConfiguration)
 

@@ -37,8 +37,6 @@ class EntertainmentNewsListFragment : Fragment(R.layout.fragment_entertainment_n
         //showing bottom bar for news list fragment
         val navBar: BottomNavigationView = requireActivity().findViewById(R.id.bottom_bar)
         navBar.isVisible = true
-        navBar.menu.setGroupCheckable(0,true,true)
-        navBar.menu.findItem(R.id.entertainmentNewsListFragment).isChecked = true;
 
         _binding = FragmentEntertainmentNewsListBinding.bind(view)
         val adapter = NewsAdapter(this)
@@ -74,10 +72,10 @@ class EntertainmentNewsListFragment : Fragment(R.layout.fragment_entertainment_n
             }
         }
 
-        setHasOptionsMenu(true)
+        //setHasOptionsMenu(true)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    /*override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.top_menu,menu)
 
@@ -99,7 +97,7 @@ class EntertainmentNewsListFragment : Fragment(R.layout.fragment_entertainment_n
             }
 
         })
-    }
+    }*/
 
     override fun onDestroyView() {
         super.onDestroyView()

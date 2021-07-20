@@ -34,8 +34,6 @@ class SportsNewsListFragment : Fragment(R.layout.fragment_sports_news_list), New
         //showing bottom bar for news list fragment
         val navBar: BottomNavigationView = requireActivity().findViewById(R.id.bottom_bar)
         navBar.isVisible = true
-        navBar.menu.setGroupCheckable(0,true,true)
-        navBar.menu.findItem(R.id.sportsNewsListFragment).isChecked = true;
 
         _binding = FragmentSportsNewsListBinding.bind(view)
         val adapter = NewsAdapter(this)
@@ -71,10 +69,10 @@ class SportsNewsListFragment : Fragment(R.layout.fragment_sports_news_list), New
             }
         }
 
-        setHasOptionsMenu(true)
+        //setHasOptionsMenu(true)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    /*override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.top_menu,menu)
 
@@ -97,7 +95,7 @@ class SportsNewsListFragment : Fragment(R.layout.fragment_sports_news_list), New
             }
 
         })
-    }
+    }*/
 
     override fun onDestroyView() {
         super.onDestroyView()
