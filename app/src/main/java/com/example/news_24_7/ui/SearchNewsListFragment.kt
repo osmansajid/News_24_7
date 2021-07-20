@@ -38,6 +38,7 @@ class SearchNewsListFragment : Fragment(R.layout.fragment_search_news_list), New
         //showing bottom bar for news list fragment
         val navBar: BottomNavigationView = requireActivity().findViewById(R.id.bottom_bar)
         navBar.isVisible = true
+        navBar.menu.setGroupCheckable(0,false,true)
 
         _binding = FragmentSearchNewsListBinding.bind(view)
         val adapter = NewsAdapter(this)

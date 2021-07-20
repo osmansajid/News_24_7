@@ -39,6 +39,8 @@ class NewsListFragment : Fragment(R.layout.fragment_news_list), NewsAdapter.OnCl
         //showing bottom bar for news list fragment
         val navBar: BottomNavigationView = requireActivity().findViewById(R.id.bottom_bar)
         navBar.isVisible = true
+        navBar.menu.setGroupCheckable(0,true,true)
+        navBar.menu.findItem(R.id.newsListFragment).isChecked = true;
 
         _binding = FragmentNewsListBinding.bind(view)
         val adapter = NewsAdapter(this)
@@ -84,7 +86,7 @@ class NewsListFragment : Fragment(R.layout.fragment_news_list), NewsAdapter.OnCl
 
         val searchItem = menu.findItem(R.id.item_search)
         val searchView = searchItem.actionView as SearchView
-
+        searchView.clearFocus()
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if(query != null){
