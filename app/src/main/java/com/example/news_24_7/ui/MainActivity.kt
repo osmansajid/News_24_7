@@ -2,6 +2,7 @@ package com.example.news_24_7.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         }*/
 
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar_)
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -50,6 +52,7 @@ class MainActivity : AppCompatActivity() {
             )
 
 
+        setSupportActionBar(toolbar)
 
         setupActionBarWithNavController(navController, appBarConfiguration)
 
