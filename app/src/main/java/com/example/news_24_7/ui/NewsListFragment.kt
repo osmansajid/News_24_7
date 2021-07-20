@@ -1,5 +1,6 @@
 package com.example.news_24_7.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -19,6 +20,11 @@ import com.example.news_24_7.model.NewsItem
 import com.example.news_24_7.viewmodel.NewsListViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.core.content.ContextCompat.getSystemService
+
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat
+
 
 @AndroidEntryPoint
 class NewsListFragment : Fragment(R.layout.fragment_news_list), NewsAdapter.OnClickListener {

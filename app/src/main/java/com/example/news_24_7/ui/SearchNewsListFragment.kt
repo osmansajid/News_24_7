@@ -84,6 +84,8 @@ class SearchNewsListFragment : Fragment(R.layout.fragment_search_news_list), New
 
         val searchItem = menu.findItem(R.id.item_search)
         val searchView = searchItem.actionView as SearchView
+        searchView.clearFocus()
+       // searchView.setQuery(args.queryString,false)
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
