@@ -3,6 +3,7 @@
     <item
         android:id="@+id/aboutUsFragment"
         android:title="About Us"
+        android:menuCategory="secondary"
         android:icon="@drawable/ic_contact"
         />
 </menu>
