@@ -3,6 +3,7 @@ package com.example.news_24_7.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.app.ActivityCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -47,6 +48,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+        if(navController.currentDestination?.id   !=  R.id.newsDetailsFragment){
+            ActivityCompat.finishAfterTransition(this)
+        }
+        else super.onBackPressed()
+    }
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
