@@ -23,11 +23,11 @@
         android:id="@+id/text_view_mail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contact: osmansazid13@gmail.com"
+        android:text="@string/contact_osmansazid13_gmail_com"
         android:textStyle="bold|italic"
         android:textColor="#d4bff9"
         android:layout_margin="8dp"
-        android:textSize="20dp"
+        android:textSize="15dp"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
         android:textColor="#d4bff9"
         android:padding="4dp"
         android:layout_margin="16dp"
-        android:textSize="20dp"
+        android:textSize="15dp"
         />
 
     <TextView
@@ -47,7 +47,7 @@
         android:textColor="#d4bff9"
         android:padding="4dp"
         android:layout_margin="4dp"
-        android:textSize="20dp"
+        android:textSize="15dp"
         />
 
 </LinearLayout>

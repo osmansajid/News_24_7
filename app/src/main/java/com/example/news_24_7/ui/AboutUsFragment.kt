@@ -23,6 +23,15 @@ class AboutUsFragment: Fragment(R.layout.fragment_about_us) {
         val navBar: BottomNavigationView = requireActivity().findViewById(R.id.bottom_bar)
         navBar.isVisible = false
 
+        binding.apply {
+            textViewMail.setOnClickListener {
+                val mailIntent = Intent(Intent.ACTION_SEND).apply {
+                    type = "message/rfc822"
+                    putExtra(Intent.EXTRA_EMAIL, arrayOf("osmansazid13@gmail.com"))
+                }
+                startActivity(mailIntent)
+            }
+        }
 
     }
 
