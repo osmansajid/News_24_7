@@ -1,9 +1,12 @@
 package com.example.news_24_7.ui
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.navigation.NavController
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,6 +14,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.news_24_7.R
+import com.example.news_24_7.constants.Constants
 import com.example.news_24_7.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -42,9 +46,57 @@ class MainActivity : AppCompatActivity() {
             )
             setSupportActionBar(toolbar)
             navDrawer.setupWithNavController(navController)
+            navDrawer.itemIconTintList = null
+            navDrawer.menu.findItem(R.id.countryUSA).setOnMenuItemClickListener {
+                saveCountryInSP("us")
+                drawerLayout.closeDrawers()
+                refreshPage()
+                true
+            }
+            navDrawer.menu.findItem(R.id.countryUK).setOnMenuItemClickListener {
+                saveCountryInSP("gb")
+                drawerLayout.closeDrawers()
+                refreshPage()
+                true
+            }
+            navDrawer.menu.findItem(R.id.countryFrance).setOnMenuItemClickListener {
+                saveCountryInSP("fr")
+                drawerLayout.closeDrawers()
+                refreshPage()
+               // findNavController(this@).navigate(R.id.newsDetailsFragment)
+                true
+            }
+            navDrawer.menu.findItem(R.id.countryIndia).setOnMenuItemClickListener {
+                saveCountryInSP("in")
+                drawerLayout.closeDrawers()
+                refreshPage()
+                true
+            }
+            navDrawer.menu.findItem(R.id.countryChina).setOnMenuItemClickListener {
+                saveCountryInSP("cn")
+                drawerLayout.closeDrawers()
+                refreshPage()
+                true
+            }
+
         }
 
         setupActionBarWithNavController(navController, appBarConfiguration)
+    }
+
+    private fun saveCountryInSP(countryCode: String) {
+        val sharedPreferences =
+            getSharedPreferences(Constants.SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString(Constants.COUNTRY_CODE, countryCode)
+        Log.d("MainActivity", "saveCountryInSP: $countryCode")
+        editor.apply()
+
+    }
+
+    private fun refreshPage(){
+       //val action =
+
     }
 
     override fun onBackPressed() {

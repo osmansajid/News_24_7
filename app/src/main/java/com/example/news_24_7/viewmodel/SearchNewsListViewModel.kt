@@ -15,7 +15,7 @@ class SearchNewsListViewModel @ViewModelInject constructor(repository: NewsRepos
     private val query = savedState.getLiveData(LAST_QUERY_STRING, CURRENT_QUERY_STRING)
 
     val news = query.switchMap {qString->
-        repository.searchNews(query = qString)
+        repository.searchNews(query = qString,"")
     }.cachedIn(viewModelScope)
 
     fun searchNews(newQuery: String){

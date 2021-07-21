@@ -11,5 +11,6 @@ class EntertainmentNewsListViewModel @ViewModelInject constructor(repository: Ne
         const val CURRENT_QUERY_STRING = "Hollywood"
     }
 
-    val news = repository.searchNews(query = CURRENT_QUERY_STRING).cachedIn(viewModelScope)
+    val news = repository.searchNews(query = CURRENT_QUERY_STRING,"").cachedIn(viewModelScope)
+
 }

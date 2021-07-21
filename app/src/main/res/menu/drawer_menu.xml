@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+
+    <item
+        android:orderInCategory="1"
+        android:title="Region"
+        >
+        <menu>
+            <item
+                android:id="@+id/countryUSA"
+                android:title="United States of America"
+                android:icon="@drawable/united_states_flag"
+                />
+            <item
+                android:id="@+id/countryUK"
+                android:title="United Kingdom"
+                android:icon="@drawable/united_kingdom_flag"
+               />
+            <item
+                android:id="@+id/countryFrance"
+                android:title="France"
+                android:icon="@drawable/france_flag"
+                />
+            <item
+                android:id="@+id/countryIndia"
+                android:title="India"
+                android:icon="@drawable/india_flag"
+                />
+            <item
+                android:id="@+id/countryChina"
+                android:title="China"
+                android:icon="@drawable/china_flag"
+                />
+        </menu>
+    </item>
+
+
     <item
         android:id="@+id/aboutUsFragment"
-        android:title="About Us"
-        android:menuCategory="secondary"
         android:icon="@drawable/ic_contact"
-        />
+        android:menuCategory="secondary"
+        android:title="About Us" />
+
+
 </menu>
