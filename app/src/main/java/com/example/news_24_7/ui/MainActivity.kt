@@ -3,16 +3,15 @@ package com.example.news_24_7.ui
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.navigation.NavController
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
+import com.example.news_24_7.NavGraphDirections
 import com.example.news_24_7.R
 import com.example.news_24_7.constants.Constants
 import com.example.news_24_7.databinding.ActivityMainBinding
@@ -95,8 +94,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun refreshPage(){
-       //val action =
-
+        val action = NavGraphDirections.actionGlobalNewsListFragment()
+        navController.navigate(action)
     }
 
     override fun onBackPressed() {
