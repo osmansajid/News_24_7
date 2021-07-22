@@ -8,7 +8,7 @@ import com.example.news_24_7.constants.Constants
 import retrofit2.HttpException
 import java.io.IOException
 
-class NewsPagingSource(private val newsApi: NewsApi, private val query: String,private val country: String): PagingSource<Int, NewsItem>() {
+class NewsPagingSource(private val newsApi: NewsApi, private val query: String,private val country: String,private val language: String): PagingSource<Int, NewsItem>() {
     override fun getRefreshKey(state: PagingState<Int, NewsItem>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
@@ -23,7 +23,7 @@ class NewsPagingSource(private val newsApi: NewsApi, private val query: String,p
             val response = if(query == ""){
                 newsApi.getTopNews(country,params.loadSize, pageNum)
             }else{
-                newsApi.searchNews(query,"en","publishedAt",params.loadSize,pageNum)
+                newsApi.searchNews(query,language,"publishedAt",params.loadSize,pageNum)
             }
            // if(response.articles.isEmpty())Log.d("LoadedOKOK","Empty")
             val articles = response.articles

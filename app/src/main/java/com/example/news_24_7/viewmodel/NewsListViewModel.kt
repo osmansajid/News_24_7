@@ -18,6 +18,6 @@ class NewsListViewModel @ViewModelInject constructor(repository: NewsRepository,
         const val CURRENT_QUERY_STRING = ""
     }
     private val sharedPreferences: SharedPreferences = appContext.getSharedPreferences(Constants.SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
-    val news = repository.searchNews(query = CURRENT_QUERY_STRING,sharedPreferences.getString(Constants.COUNTRY_CODE,"us")!!).cachedIn(viewModelScope)
+    val news = repository.searchNews(query = CURRENT_QUERY_STRING,country = sharedPreferences.getString(Constants.COUNTRY_CODE,"us")!!,language = "").cachedIn(viewModelScope)
 
 }

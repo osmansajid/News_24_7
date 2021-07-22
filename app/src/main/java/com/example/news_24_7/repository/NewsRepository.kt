@@ -11,14 +11,14 @@ import javax.inject.Singleton
 @Singleton
 class NewsRepository @Inject constructor(private val newsApi: NewsApi) {
 
-    fun searchNews(query: String, country: String) =
+    fun searchNews(query: String, country: String, language: String) =
             Pager(
                 config = PagingConfig(
                     pageSize = 20,
                     maxSize = 80,
                     enablePlaceholders = true
                 ),
-                pagingSourceFactory = { NewsPagingSource(newsApi, query,country) }
+                pagingSourceFactory = { NewsPagingSource(newsApi, query,country,language) }
             ).liveData
 
 }

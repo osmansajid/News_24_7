@@ -47,32 +47,32 @@ class MainActivity : AppCompatActivity() {
             navDrawer.setupWithNavController(navController)
             navDrawer.itemIconTintList = null
             navDrawer.menu.findItem(R.id.countryUSA).setOnMenuItemClickListener {
-                saveCountryInSP("us")
+                saveCountryInSP("us","en")
                 drawerLayout.closeDrawers()
                 refreshPage()
                 true
             }
             navDrawer.menu.findItem(R.id.countryUK).setOnMenuItemClickListener {
-                saveCountryInSP("gb")
+                saveCountryInSP("gb","en")
                 drawerLayout.closeDrawers()
                 refreshPage()
                 true
             }
             navDrawer.menu.findItem(R.id.countryFrance).setOnMenuItemClickListener {
-                saveCountryInSP("fr")
+                saveCountryInSP("fr","fr")
                 drawerLayout.closeDrawers()
                 refreshPage()
                // findNavController(this@).navigate(R.id.newsDetailsFragment)
                 true
             }
             navDrawer.menu.findItem(R.id.countryIndia).setOnMenuItemClickListener {
-                saveCountryInSP("in")
+                saveCountryInSP("in","hi")
                 drawerLayout.closeDrawers()
                 refreshPage()
                 true
             }
             navDrawer.menu.findItem(R.id.countryChina).setOnMenuItemClickListener {
-                saveCountryInSP("cn")
+                saveCountryInSP("cn","zh")
                 drawerLayout.closeDrawers()
                 refreshPage()
                 true
@@ -83,11 +83,12 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
-    private fun saveCountryInSP(countryCode: String) {
+    private fun saveCountryInSP(countryCode: String,languageCode: String) {
         val sharedPreferences =
             getSharedPreferences(Constants.SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString(Constants.COUNTRY_CODE, countryCode)
+        editor.putString(Constants.LANGUAGE_CODE, languageCode)
         Log.d("MainActivity", "saveCountryInSP: $countryCode")
         editor.apply()
 
