@@ -3,6 +3,7 @@ package com.example.news_24_7.ui
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.navigation.NavController
@@ -44,6 +45,7 @@ class MainActivity : AppCompatActivity() {
             setSupportActionBar(toolbar)
             navDrawer.setupWithNavController(navController)
             navDrawer.itemIconTintList = null
+            initIcons()
             setIconOnCreate()
             navDrawer.menu.findItem(R.id.countryUSA).setOnMenuItemClickListener {
                 changeIcon(R.id.countryUSA)
@@ -86,15 +88,28 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
+    private fun initIcons(){
+        binding.navDrawer.menu.findItem(R.id.countryUSA).setActionView(R.layout.menu_image)
+        binding.navDrawer.menu.findItem(R.id.countryUK).setActionView(R.layout.menu_image)
+        binding.navDrawer.menu.findItem(R.id.countryFrance).setActionView(R.layout.menu_image)
+        binding.navDrawer.menu.findItem(R.id.countryIndia).setActionView(R.layout.menu_image)
+        binding.navDrawer.menu.findItem(R.id.countryChina).setActionView(R.layout.menu_image)
+        binding.navDrawer.menu.findItem(R.id.countryUSA).actionView.visibility = View.INVISIBLE
+        binding.navDrawer.menu.findItem(R.id.countryUK).actionView.visibility = View.INVISIBLE
+        binding.navDrawer.menu.findItem(R.id.countryFrance).actionView.visibility = View.INVISIBLE
+        binding.navDrawer.menu.findItem(R.id.countryIndia).actionView.visibility = View.INVISIBLE
+        binding.navDrawer.menu.findItem(R.id.countryChina).actionView.visibility = View.INVISIBLE
+    }
+
     private fun setIconOnCreate(){
         val sharedPreferences =
             getSharedPreferences(Constants.SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
         when (sharedPreferences.getString(Constants.COUNTRY_CODE,"us")) {
-            "us" -> binding.navDrawer.menu.findItem(R.id.countryUSA).setActionView(R.layout.menu_image)
-            "gb" -> binding.navDrawer.menu.findItem(R.id.countryUK).setActionView(R.layout.menu_image)
-            "fr" -> binding.navDrawer.menu.findItem(R.id.countryFrance).setActionView(R.layout.menu_image)
-            "in" -> binding.navDrawer.menu.findItem(R.id.countryIndia).setActionView(R.layout.menu_image)
-            "cn" -> binding.navDrawer.menu.findItem(R.id.countryChina).setActionView(R.layout.menu_image)
+            "us" -> binding.navDrawer.menu.findItem(R.id.countryUSA).actionView.visibility = View.VISIBLE
+            "gb" -> binding.navDrawer.menu.findItem(R.id.countryUK).actionView.visibility = View.VISIBLE
+            "fr" -> binding.navDrawer.menu.findItem(R.id.countryFrance).actionView.visibility = View.VISIBLE
+            "in" -> binding.navDrawer.menu.findItem(R.id.countryIndia).actionView.visibility = View.VISIBLE
+            "cn" -> binding.navDrawer.menu.findItem(R.id.countryChina).actionView.visibility = View.VISIBLE
         }
     }
 
@@ -102,13 +117,13 @@ class MainActivity : AppCompatActivity() {
         val sharedPreferences =
             getSharedPreferences(Constants.SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
         when (sharedPreferences.getString(Constants.COUNTRY_CODE,"us")) {
-            "us" -> binding.navDrawer.menu.findItem(R.id.countryUSA).actionView = null
-            "gb" -> binding.navDrawer.menu.findItem(R.id.countryUK).actionView = null
-            "fr" -> binding.navDrawer.menu.findItem(R.id.countryFrance).actionView = null
-            "in" -> binding.navDrawer.menu.findItem(R.id.countryIndia).actionView = null
-            "cn" -> binding.navDrawer.menu.findItem(R.id.countryChina).actionView = null
+            "us" -> binding.navDrawer.menu.findItem(R.id.countryUSA).actionView.visibility = View.INVISIBLE
+            "gb" -> binding.navDrawer.menu.findItem(R.id.countryUK).actionView.visibility = View.INVISIBLE
+            "fr" -> binding.navDrawer.menu.findItem(R.id.countryFrance).actionView.visibility = View.INVISIBLE
+            "in" -> binding.navDrawer.menu.findItem(R.id.countryIndia).actionView.visibility = View.INVISIBLE
+            "cn" -> binding.navDrawer.menu.findItem(R.id.countryChina).actionView.visibility = View.INVISIBLE
         }
-        binding.navDrawer.menu.findItem(resourceId).setActionView(R.layout.menu_image)
+        binding.navDrawer.menu.findItem(resourceId).actionView.visibility = View.VISIBLE
     }
 
     private fun saveCountryInSP(countryCode: String,languageCode: String) {
